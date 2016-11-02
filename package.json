@@ -12,6 +12,7 @@
     "eslint-plugin-react": "^6.3.0"
   },
   "dependencies": {
+    "materialize-css": "^0.97.8",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
