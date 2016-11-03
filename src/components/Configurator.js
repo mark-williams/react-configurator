@@ -17,9 +17,9 @@ class Configurator extends Component {
     this.state = {
       selectedSection: 1,
       sections: [
-        { id: 1, sectionName: 'Size', bodyText: `Please choose your size (have you seen our size guide?)` },
-        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset?' },
-        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?' },
+        { id: 1, sectionName: 'Size', bodyText: `Please choose your size (have you seen our size guide?)`, options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm'} , { val: 60, desc: '60cm' }] },
+        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra' }] },
+        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 'B', desc: 'Blue' }, { val: 'G', desc: 'Grey' }, { val: 'R', desc: 'Red' }] },
       ],
     };
   }
