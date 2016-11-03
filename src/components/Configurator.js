@@ -17,7 +17,7 @@ class Configurator extends Component {
     this.state = {
       selectedSection: 1,
       sections: [
-        { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?' },
+        { id: 1, sectionName: 'Size', bodyText: `Please choose your size (have you seen our size guide?)` },
         { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset?' },
         { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?' },
       ],
