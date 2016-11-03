@@ -15,12 +15,12 @@ class Configurator extends Component {
     super();
 
     this.state = {
-      selectedSection: 'size-accordion',
-      sections: {
-        size: ['50cm', '54cm', '57cm', '60cm'],
-        groupset: ['Shimano Tiagra', 'Shimano Ultegra'],
-        colour: ['Blue', 'Grey', 'Red'],
-      },
+      selectedSection: 1,
+      sections: [
+        { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?' },
+        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset?' },
+        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?' },
+      ],
     };
   }
 
@@ -43,15 +43,13 @@ class Configurator extends Component {
         <div className="row">
           <div className="col s5">
             <ul className="collapsible" data-collapsible="accordion">
-              <li>
-                <FacetSection sectionName="Size" selection="Not selected" open={true} bodyText="Please choose a size" />
-              </li>
-              <li>
-                <FacetSection sectionName="Groupset" selection="Not selected" open={false} className="collapsible-header" bodyText="Please choose a size" />
-              </li>
-              <li>
-                <FacetSection sectionName="Colour" selection="Not selected" open={false}  bodyText="Please choose a size" />
-              </li>
+              { 
+                this.state.sections.map(section => (
+                  <li key={section.id}>
+                    <FacetSection {...section} open={section.id === this.state.selectedSection} />
+                  </li>
+                )) 
+              }
             </ul>
           </div>
         </div>
