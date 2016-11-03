@@ -16,7 +16,6 @@
     //"no-underscore-dangle": [0],
 
     // React-specific
-     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-     "react/jsx-boolean-value": "always",
+     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }

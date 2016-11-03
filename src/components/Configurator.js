@@ -1,5 +1,7 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import FacetSection from './FacetSection';
+
 
 class Configurator extends Component {
 
@@ -14,28 +16,36 @@ class Configurator extends Component {
   constructor() {
     super();
 
+    this.onSectionClick = this.onSectionClick.bind(this);
+    this.onOptionChosen = this.onOptionChosen.bind(this);
+
     this.state = {
       selectedSection: 1,
       sections: [
-        { id: 1, sectionName: 'Size', bodyText: `Please choose your size (have you seen our size guide?)`, options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm'} , { val: 60, desc: '60cm' }] },
-        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra' }] },
-        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 'B', desc: 'Blue' }, { val: 'G', desc: 'Grey' }, { val: 'R', desc: 'Red' }] },
+        { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 54 },
+        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra (+£200)' }], selectedOption: 0 },
+        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Grey' }, { val: 3, desc: 'Red' }], selectedOption: 2 },
       ],
     };
-  }
-
-  getSelectionClass(section) {
-    if (section === this.state.selectedSection) {
-      return 'collapsible-header active';
-    }
-
-    return 'collapsible-header';
   }
 
   onSectionClick(sectionId) {
     if (sectionId !== this.state.selectedSection) {
       this.setState({ selectedSection: sectionId });
     }
+  }
+
+  onOptionChosen(sectionId, optionId) {
+    const index = _.findIndex(this.state.sections, s => (s.id === sectionId));
+    const updatedSection = Object.assign({},
+      this.state.sections[index],
+      { selectedOption: optionId });
+    const sections = [
+      ...this.state.sections.slice(0, index),
+      updatedSection,
+      ...this.state.sections.slice(index + 1)];
+
+    this.setState({ sections });
   }
 
   render() {
@@ -49,12 +59,17 @@ class Configurator extends Component {
         <div className="row">
           <div className="col s5">
             <ul className="collapsible" data-collapsible="accordion">
-              { 
+              {
                 this.state.sections.map(section => (
                   <li key={section.id}>
-                    <FacetSection {...section} open={section.id === this.state.selectedSection} onClick={this.onSectionClick.bind(this)} />
+                    <FacetSection
+                      section={section}
+                      open={section.id === this.state.selectedSection}
+                      onClick={this.onSectionClick}
+                      onOptionChosen={this.onOptionChosen}
+                    />
                   </li>
-                )) 
+                ))
               }
             </ul>
           </div>
