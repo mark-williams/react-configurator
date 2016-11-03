@@ -32,6 +32,12 @@ class Configurator extends Component {
     return 'collapsible-header';
   }
 
+  onSectionClick(sectionId) {
+    if (sectionId !== this.state.selectedSection) {
+      this.setState({ selectedSection: sectionId });
+    }
+  }
+
   render() {
     return (
       <div className="container">
@@ -46,7 +52,7 @@ class Configurator extends Component {
               { 
                 this.state.sections.map(section => (
                   <li key={section.id}>
-                    <FacetSection {...section} open={section.id === this.state.selectedSection} />
+                    <FacetSection {...section} open={section.id === this.state.selectedSection} onClick={this.onSectionClick.bind(this)} />
                   </li>
                 )) 
               }
