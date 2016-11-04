@@ -4,7 +4,7 @@ import FacetBody from './FacetBody';
 const FacetSection = props => (
   <div>
     <div onClick={() => props.onClick(props.section.id)} className="collapsible-header">
-      <i className="material-icons">{props.section.sectionName}</i>
+      <i className="material-icons">{props.section.sectionName}</i>{props.selection}
     </div>
     <FacetBody
       open={props.open}

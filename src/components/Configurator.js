@@ -48,6 +48,17 @@ class Configurator extends Component {
     this.setState({ sections });
   }
 
+  getOptionDescription(sectionId) {
+    let description = 'Not selected';
+    const section = _.find(this.state.sections, s => (s.id === sectionId));
+    if (section && section.selectedOption > 0) {
+      const option = _.find(section.options, o => o.val === section.selectedOption);
+      description = option.desc;
+    }
+
+    return description;
+  }
+
   render() {
     return (
       <div className="container">
@@ -65,6 +76,7 @@ class Configurator extends Component {
                     <FacetSection
                       section={section}
                       open={section.id === this.state.selectedSection}
+                      selection={this.getOptionDescription(section.id)}
                       onClick={this.onSectionClick}
                       onOptionChosen={this.onOptionChosen}
                     />
