@@ -23,6 +23,11 @@
   font-size: large;
 }
 
+.facet-section--notSelected {
+  color: #ccc;
+  font-style: italic;
+}
+
 .facet-options {
   margin-bottom: 2.4em;
 }
