@@ -7,7 +7,7 @@ const FacetBody = (props) => {
       <p>{props.bodyText}</p>
       <ul className="facet-options">
         { props.options.map((opt, i) => (
-          <li key={opt.val} className="facet-body--option">
+          <li key={opt.val} className="facet-options__body">
             <input
               name={`section-${props.sectionId}`}
               type="radio"
