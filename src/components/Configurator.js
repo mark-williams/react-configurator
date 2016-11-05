@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import FacetSection from './FacetSection';
-
+import Price from './Price';
 
 class Configurator extends Component {
 
@@ -108,7 +108,7 @@ class Configurator extends Component {
         </div>
         <div className="row">
           <div className="col offset-s3 s3">
-            <h4 className="right-align">Price £{this.state.configuredPrice}</h4>
+            <Price price={this.state.configuredPrice} />
           </div>  
         </div>
       </div>
