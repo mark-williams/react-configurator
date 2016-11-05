@@ -15,7 +15,7 @@ const FacetBody = (props) => {
               onChange={() => props.onOptionChosen(props.sectionId, opt.val)}
               checked={opt.val === props.selectedOption}
             />
-            <label htmlFor={`${idPrefix}-${i}`}>{opt.desc}</label>
+            <label htmlFor={`${idPrefix}-${i}`}>{opt.desc}{opt.extraCost ? ` (+£${opt.extraCost})` : ''}</label>
           </li>
         ))
       }

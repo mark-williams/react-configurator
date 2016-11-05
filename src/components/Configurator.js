@@ -25,7 +25,7 @@ class Configurator extends Component {
       configuredPrice: 999,
       sections: [
         { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
-        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra (+£200)', extraCost: 200 }], selectedOption: 0 },
+        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
         { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Red' }, { val: 3, desc: 'Chrome', extraCost: 100 }], selectedOption: 0 },
       ],
     };
@@ -60,7 +60,6 @@ class Configurator extends Component {
       if (section.selectedOption !== 0) {
         const option = _.find(section.options, o => o.val === section.selectedOption);
         if (option.extraCost) {
-          //console.log('EXTRA COST OPTION', option);
           configuredPrice += option.extraCost;
         }
       }
@@ -84,12 +83,12 @@ class Configurator extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s5">
-            <h4>Here you can configure your new bike!</h4>
+          <div className="col s6">
+            <h4>Configure your new bike</h4>
           </div>
         </div>
         <div className="row">
-          <div className="col s5">
+          <div className="col s6">
             <ul className="collapsible" data-collapsible="accordion">
               {
                 this.state.sections.map(section => (
@@ -108,7 +107,9 @@ class Configurator extends Component {
           </div>
         </div>
         <div className="row">
-          <h4>Price £{this.state.configuredPrice}</h4>
+          <div className="col offset-s3 s3">
+            <h4 className="right-align">Price £{this.state.configuredPrice}</h4>
+          </div>  
         </div>
       </div>
     );
