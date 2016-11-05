@@ -21,10 +21,12 @@ class Configurator extends Component {
 
     this.state = {
       selectedSection: 1,
+      basePrice: 999,
+      configuredPrice: 999,
       sections: [
         { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
-        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra (+£200)' }], selectedOption: 0 },
-        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Grey' }, { val: 3, desc: 'Red' }], selectedOption: 0 },
+        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra (+£200)', extraCost: 200 }], selectedOption: 0 },
+        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Red' }, { val: 3, desc: 'Chrome', extraCost: 100 }], selectedOption: 0 },
       ],
     };
   }
@@ -46,7 +48,25 @@ class Configurator extends Component {
       ...this.state.sections.slice(index + 1),
     ];
 
-    this.setState({ sections });
+    const configuredPrice = this.getPrice(sections);
+
+    this.setState({ sections, configuredPrice });
+  }
+
+  getPrice(updatedSections) {
+    let configuredPrice = this.state.basePrice;
+
+    updatedSections.forEach((section) => {
+      if (section.selectedOption !== 0) {
+        const option = _.find(section.options, o => o.val === section.selectedOption);
+        if (option.extraCost) {
+          //console.log('EXTRA COST OPTION', option);
+          configuredPrice += option.extraCost;
+        }
+      }
+    });
+
+    return configuredPrice;
   }
 
   getOptionDescription(sectionId) {
@@ -86,6 +106,9 @@ class Configurator extends Component {
               }
             </ul>
           </div>
+        </div>
+        <div className="row">
+          <h4>Price £{this.state.configuredPrice}</h4>
         </div>
       </div>
     );
