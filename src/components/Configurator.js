@@ -5,14 +5,6 @@ import Price from './Price';
 
 class Configurator extends Component {
 
-  static renderBody() {
-    return (
-      <div className="collapsible-body" style={{ display: 'block' }}>
-        <p>Lorem ipsum dolor sit amet. ++++</p>
-      </div>
-    );
-  }
-
   constructor() {
     super();
 
@@ -109,7 +101,7 @@ class Configurator extends Component {
         <div className="row">
           <div className="col offset-s3 s3">
             <Price price={this.state.configuredPrice} />
-          </div>  
+          </div>
         </div>
       </div>
     );
