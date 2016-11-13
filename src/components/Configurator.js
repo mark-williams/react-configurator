@@ -2,17 +2,21 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import FacetSection from './FacetSection';
 import Price from './Price';
+import store from '../store/store';
+import { FACETCHANGE } from '../actions/index';
 
 class Configurator extends Component {
 
   constructor() {
     super();
 
+    store.subscribe(this.onStoreUpdate.bind(this));
+
     this.onSectionClick = this.onSectionClick.bind(this);
     this.onOptionChosen = this.onOptionChosen.bind(this);
 
     this.state = {
-      selectedSection: 1,
+      selectedFacetId: 1,
       basePrice: 999,
       configuredPrice: 999,
       sections: [
@@ -23,10 +27,12 @@ class Configurator extends Component {
     };
   }
 
+  onStoreUpdate() {
+    this.setState(store.getState());
+  }
+
   onSectionClick(sectionId) {
-    if (sectionId !== this.state.selectedSection) {
-      this.setState({ selectedSection: sectionId });
-    }
+    store.dispatch({ type: FACETCHANGE, value: sectionId });
   }
 
   onOptionChosen(sectionId, optionId) {
@@ -87,7 +93,7 @@ class Configurator extends Component {
                   <li key={section.id}>
                     <FacetSection
                       section={section}
-                      open={section.id === this.state.selectedSection}
+                      open={section.id === this.state.selectedFacetId}
                       selection={this.getOptionDescription(section.id)}
                       onClick={this.onSectionClick}
                       onOptionChosen={this.onOptionChosen}

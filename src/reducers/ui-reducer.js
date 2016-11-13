@@ -11,8 +11,6 @@ const uiReducer = (state = initialState, action) => {
     default:
       return state;
   }
-  
-  return state;
 };
 
 export default uiReducer;
