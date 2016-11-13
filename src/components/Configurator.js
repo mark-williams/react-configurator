@@ -19,9 +19,9 @@ class Configurator extends Component {
       ui: { selectedFacetId: 1 },
       pricing: { basePrice: 999, configuredPrice: 999 },
       facets: [
-        { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
-        { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
-        { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Red' }, { val: 3, desc: 'Chrome', extraCost: 100 }], selectedOption: 0 },
+        { id: 1, facetName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
+        { id: 2, facetName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
+        { id: 3, facetName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Red' }, { val: 3, desc: 'Chrome', extraCost: 100 }], selectedOption: 0 },
       ],
     };
   }
@@ -91,12 +91,12 @@ class Configurator extends Component {
           <div className="col s6">
             <ul className="collapsible" data-collapsible="accordion">
               {
-                this.state.facets.map(section => (
-                  <li key={section.id}>
+                this.state.facets.map(facet => (
+                  <li key={facet.id}>
                     <FacetSection
-                      section={section}
-                      open={section.id === this.state.ui.selectedFacetId}
-                      selection={this.getOptionDescription(section.id)}
+                      facet={facet}
+                      open={facet.id === this.state.ui.selectedFacetId}
+                      selection={this.getOptionDescription(facet.id)}
                       onClick={this.onSectionClick}
                       onOptionChosen={this.onOptionChosen}
                     />
