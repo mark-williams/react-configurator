@@ -17,9 +17,8 @@ class Configurator extends Component {
 
     this.state = {
       ui: { selectedFacetId: 1 },
-      basePrice: 999,
-      configuredPrice: 999,
-      sections: [
+      pricing: { basePrice: 999, configuredPrice: 999 },
+      facets: [
         { id: 1, sectionName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
         { id: 2, sectionName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
         { id: 3, sectionName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Blue' }, { val: 2, desc: 'Red' }, { val: 3, desc: 'Chrome', extraCost: 100 }], selectedOption: 0 },
@@ -36,25 +35,28 @@ class Configurator extends Component {
   }
 
   onOptionChosen(sectionId, optionId) {
-    const index = _.findIndex(this.state.sections, s => (s.id === sectionId));
+    const index = _.findIndex(this.state.facets, s => (s.id === sectionId));
     const updatedSection = Object.assign({},
-      this.state.sections[index],
+      this.state.facets[index],
       { selectedOption: optionId });
-    const sections = [
-      ...this.state.sections.slice(0, index),
+    const facets = [
+      ...this.state.facets.slice(0, index),
       updatedSection,
-      ...this.state.sections.slice(index + 1),
+      ...this.state.facets.slice(index + 1),
     ];
 
-    const configuredPrice = this.getPrice(sections);
+    const pricing = Object.assign(
+      {},
+      this.state.pricing,
+      { configuredPrice: this.getPrice(facets) });
 
-    this.setState({ sections, configuredPrice });
+    this.setState({ facets, pricing });
   }
 
-  getPrice(updatedSections) {
-    let configuredPrice = this.state.basePrice;
+  getPrice(updatedFacets) {
+    let configuredPrice = this.state.pricing.basePrice;
 
-    updatedSections.forEach((section) => {
+    updatedFacets.forEach((section) => {
       if (section.selectedOption !== 0) {
         const option = _.find(section.options, o => o.val === section.selectedOption);
         if (option.extraCost) {
@@ -68,7 +70,7 @@ class Configurator extends Component {
 
   getOptionDescription(sectionId) {
     let description = 'Not selected';
-    const section = _.find(this.state.sections, s => (s.id === sectionId));
+    const section = _.find(this.state.facets, s => (s.id === sectionId));
     if (section && section.selectedOption > 0) {
       const option = _.find(section.options, o => o.val === section.selectedOption);
       description = option.desc;
@@ -89,7 +91,7 @@ class Configurator extends Component {
           <div className="col s6">
             <ul className="collapsible" data-collapsible="accordion">
               {
-                this.state.sections.map(section => (
+                this.state.facets.map(section => (
                   <li key={section.id}>
                     <FacetSection
                       section={section}
@@ -106,7 +108,7 @@ class Configurator extends Component {
         </div>
         <div className="row">
           <div className="col offset-s3 s3">
-            <Price price={this.state.configuredPrice} />
+            <Price price={this.state.pricing.configuredPrice} />
           </div>
         </div>
       </div>
