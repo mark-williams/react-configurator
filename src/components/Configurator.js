@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import FacetSection from './FacetSection';
 import Price from './Price';
 import store from '../store/store';
-import { FACETCHANGE } from '../actions/index';
+import { changeSelectedFacet } from '../actions/index';
 
 class Configurator extends Component {
 
@@ -16,7 +16,7 @@ class Configurator extends Component {
     this.onOptionChosen = this.onOptionChosen.bind(this);
 
     this.state = {
-      selectedFacetId: 1,
+      ui: { selectedFacetId: 1 },
       basePrice: 999,
       configuredPrice: 999,
       sections: [
@@ -28,11 +28,11 @@ class Configurator extends Component {
   }
 
   onStoreUpdate() {
-    this.setState(store.getState());
+    this.setState({ ui: store.getState() });
   }
 
   onSectionClick(sectionId) {
-    store.dispatch({ type: FACETCHANGE, value: sectionId });
+    store.dispatch(changeSelectedFacet(sectionId));
   }
 
   onOptionChosen(sectionId, optionId) {
@@ -93,7 +93,7 @@ class Configurator extends Component {
                   <li key={section.id}>
                     <FacetSection
                       section={section}
-                      open={section.id === this.state.selectedFacetId}
+                      open={section.id === this.state.ui.selectedFacetId}
                       selection={this.getOptionDescription(section.id)}
                       onClick={this.onSectionClick}
                       onOptionChosen={this.onOptionChosen}
