@@ -2,6 +2,7 @@ import React from 'react';
 
 const FacetBody = (props) => {
   const idPrefix = `section-${props.facetId}`;
+
   return (
     <div className="collapsible-body" style={{ display: props.open ? 'block' : 'none' }}>
       <p>{props.bodyText}</p>

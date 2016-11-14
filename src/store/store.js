@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import uiReducer from '../reducers/ui-reducer';
+import combineReducers from '../reducers/index';
 
-const store = createStore(uiReducer);
+const store = createStore(combineReducers);
 
 export default store;

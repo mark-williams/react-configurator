@@ -6,12 +6,12 @@ describe('facet-reducer', () => {
   describe('default behaviour', () => {
     it('when passed undefined state return a default state', () => {
       const newState = facetReducer(undefined, {});
-      expect(newState.facets).toBeDefined();
+      expect(newState.length).toBe(3);
     });
 
     it('when passed am unknown action return the passed in state', () => {
       const action = { type: 'UNKNOWN', value: {} };
-      const testState = { value: 'some value' };
+      const testState = [{ facet: 1 }, { facet: 2 }, { facet: 3 }];
       const newState = facetReducer(testState, action);
 
       expect(newState).toEqual(testState);
@@ -21,13 +21,11 @@ describe('facet-reducer', () => {
   describe('update selection', () => {
     let currentState;
     beforeEach(() => {
-      currentState = {
-        facets: [
-          { id: 1, name: 'Facet 1', options: [{ val: 1 }, { val: 2 }, { val: 3 }] },
-          { id: 2, name: 'Facet 2', options: [{ val: 1 }, { val: 2 }, { val: 3 }] },
-          { id: 3, name: 'Facet 3', options: [{ val: 1 }, { val: 2 }, { val: 3 }] },
-        ],
-      };
+      currentState = [
+        { id: 1, name: 'Facet 1', options: [{ val: 1 }, { val: 2 }, { val: 3 }] },
+        { id: 2, name: 'Facet 2', options: [{ val: 1 }, { val: 2 }, { val: 3 }] },
+        { id: 3, name: 'Facet 3', options: [{ val: 1 }, { val: 2 }, { val: 3 }] },
+      ];
     });
 
     it('when passed a selected option it sets the appropriate facet as selected', () => {
@@ -36,7 +34,7 @@ describe('facet-reducer', () => {
       const action = optionSelected(facetIdToSelect, optionToSelect);
       const newState = facetReducer(currentState, action);
 
-      const selectedFacet = _.find(newState.facets, facet => (
+      const selectedFacet = _.find(newState, facet => (
         facet.id === facetIdToSelect
       ));
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import FacetSection from './FacetSection';
 import Price from './Price';
 import store from '../store/store';
-import { changeSelectedFacet } from '../actions/index';
+import { changeSelectedFacet, optionSelected } from '../actions/index';
 
 class Configurator extends Component {
 
@@ -27,30 +27,15 @@ class Configurator extends Component {
   }
 
   onStoreUpdate() {
-    this.setState({ ui: store.getState() });
+    this.setState(store.getState());
   }
 
   onSectionClick(sectionId) {
     store.dispatch(changeSelectedFacet(sectionId));
   }
 
-  onOptionChosen(sectionId, optionId) {
-    const index = _.findIndex(this.state.facets, s => (s.id === sectionId));
-    const updatedSection = Object.assign({},
-      this.state.facets[index],
-      { selectedOption: optionId });
-    const facets = [
-      ...this.state.facets.slice(0, index),
-      updatedSection,
-      ...this.state.facets.slice(index + 1),
-    ];
-
-    const pricing = Object.assign(
-      {},
-      this.state.pricing,
-      { configuredPrice: this.getPrice(facets) });
-
-    this.setState({ facets, pricing });
+  onOptionChosen(facetId, optionId) {
+    store.dispatch(optionSelected(facetId, optionId));
   }
 
   getPrice(updatedFacets) {
