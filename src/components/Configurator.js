@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import FacetSection from './FacetSection';
 import Price from './Price';
 import { changeSelectedFacet, optionSelected } from '../actions/index';
+import { getOptionDescription } from '../reducers/facet-reducer';
 
 const Configurator = props => (
   <div>
@@ -42,22 +43,11 @@ const Configurator = props => (
   </div>
 );
 
-const getOptDesc = (facets, sectionId) => {
-  let description = 'Not selected';
-  const section = _.find(facets, s => (s.id === sectionId));
-  if (section && section.selectedOption > 0) {
-    const option = _.find(section.options, o => o.val === section.selectedOption);
-    description = option.desc;
-  }
-
-  return description;
-};
-
 const mapStateToProps = state => (
   {
     facets: state.facets,
     ui: state.ui,
-    getOptionDescription: facetId => (getOptDesc(state.facets, facetId)),
+    getOptionDescription: facetId => (getOptionDescription(state.facets, facetId)),
   }
 );
 
