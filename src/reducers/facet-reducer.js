@@ -33,9 +33,9 @@ export const getOptionDescription = (facets, sectionId) => {
   return description;
 };
 
-export const getConfiguredPrice = (state) => {
+export const getConfiguredPrice = (facets) => {
   let configuredPrice = BASE_PRICE;
-  state.facets.forEach((section) => {
+  facets.forEach((section) => {
     if (section.selectedOption !== 0) {
       const option = _.find(section.options, o => o.val === section.selectedOption);
       if (option.extraCost) {
@@ -45,7 +45,7 @@ export const getConfiguredPrice = (state) => {
   });
 
   return configuredPrice;
-}
+};
 
 const facetReducer = (state = initialState, action) => {
   switch (action.type) {

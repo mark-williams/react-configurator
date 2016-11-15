@@ -64,8 +64,7 @@ describe('facet-reducer', () => {
 
     it('calculates price where no extra cost elements are selected', () => {
       testFacets[1].selectedOption = 1;
-      const overallState = { facets: testFacets };
-      const result = getConfiguredPrice(overallState);
+      const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(999);
     });
@@ -73,8 +72,7 @@ describe('facet-reducer', () => {
     it('calculates price where extra cost elements are selected', () => {
       testFacets[1].selectedOption = 2;
       testFacets[2].selectedOption = 1;
-      const overallState = { facets: testFacets };
-      const result = getConfiguredPrice(overallState);
+      const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(1499);
     });

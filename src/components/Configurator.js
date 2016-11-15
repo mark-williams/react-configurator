@@ -7,7 +7,6 @@ import { getOptionDescription, getConfiguredPrice } from '../reducers/facet-redu
 
 const Configurator = props => (
   <div>
-    <h4>A configuration tool</h4>
     <div className="container">
       <div className="row">
         <div className="col s6">
@@ -47,7 +46,7 @@ const mapStateToProps = state => (
     facets: state.facets,
     ui: state.ui,
     getOptionDescription: facetId => (getOptionDescription(state.facets, facetId)),
-    getConfiguredPrice: () => (getConfiguredPrice(state)),
+    getConfiguredPrice: () => (getConfiguredPrice(state.facets)),
   }
 );
 
