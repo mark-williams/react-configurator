@@ -30,21 +30,6 @@ class Configurator extends Component {
     store.dispatch(optionSelected(facetId, optionId));
   }
 
-  getPrice(updatedFacets) {
-    let configuredPrice = this.state.pricing.basePrice;
-
-    updatedFacets.forEach((section) => {
-      if (section.selectedOption !== 0) {
-        const option = _.find(section.options, o => o.val === section.selectedOption);
-        if (option.extraCost) {
-          configuredPrice += option.extraCost;
-        }
-      }
-    });
-
-    return configuredPrice;
-  }
-
   getConfiguredPrice() {
     let configuredPrice = 999;
     this.state.facets.forEach((section) => {
