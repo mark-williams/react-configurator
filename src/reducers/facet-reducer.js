@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { OPTIONSELECTED } from '../actions/index';
 
+const BASE_PRICE = 999;
 const initialState = [
     { id: 1, facetName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
     { id: 2, facetName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
@@ -31,6 +32,20 @@ export const getOptionDescription = (facets, sectionId) => {
 
   return description;
 };
+
+export const getConfiguredPrice = (state) => {
+  let configuredPrice = BASE_PRICE;
+  state.facets.forEach((section) => {
+    if (section.selectedOption !== 0) {
+      const option = _.find(section.options, o => o.val === section.selectedOption);
+      if (option.extraCost) {
+        configuredPrice += option.extraCost;
+      }
+    }
+  });
+
+  return configuredPrice;
+}
 
 const facetReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -1,10 +1,9 @@
-import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import FacetSection from './FacetSection';
 import Price from './Price';
 import { changeSelectedFacet, optionSelected } from '../actions/index';
-import { getOptionDescription } from '../reducers/facet-reducer';
+import { getOptionDescription, getConfiguredPrice } from '../reducers/facet-reducer';
 
 const Configurator = props => (
   <div>
@@ -36,7 +35,7 @@ const Configurator = props => (
       </div>
       <div className="row">
         <div className="col offset-s3 s3">
-          <Price price="999" />
+          <Price price={props.getConfiguredPrice()} />
         </div>
       </div>
     </div>
@@ -48,6 +47,7 @@ const mapStateToProps = state => (
     facets: state.facets,
     ui: state.ui,
     getOptionDescription: facetId => (getOptionDescription(state.facets, facetId)),
+    getConfiguredPrice: () => (getConfiguredPrice(state)),
   }
 );
 
