@@ -1,9 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import FacetSection from './FacetSection';
 import Price from './Price';
-import { changeSelectedFacet, optionSelected } from '../actions/index';
-import { getOptionDescription, getConfiguredPrice } from '../reducers/facet-reducer';
 
 const Configurator = props => (
   <div>
@@ -41,24 +38,4 @@ const Configurator = props => (
   </div>
 );
 
-const mapStateToProps = state => (
-  {
-    facets: state.facets,
-    ui: state.ui,
-    getOptionDescription: facetId => (getOptionDescription(state.facets, facetId)),
-    getConfiguredPrice: () => (getConfiguredPrice(state.facets)),
-  }
-);
-
-const mapDispatchToProps = dispatch => (
-  {
-    onSectionChange: facetId => dispatch(changeSelectedFacet(facetId)),
-    onOptionChosen: (facetId, optionId) => dispatch(optionSelected(facetId, optionId)),
-  }
-);
-
-const ConfiguratorContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps)(Configurator);
-
-export default ConfiguratorContainer;
+export default Configurator;
