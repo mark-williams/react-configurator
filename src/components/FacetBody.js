@@ -2,9 +2,8 @@ import React from 'react';
 
 const FacetBody = (props) => {
   const idPrefix = `section-${props.facetId}`;
-
   return (
-    <div className="collapsible-body" style={{ display: props.open ? 'block' : 'none' }}>
+    <div className="collapsible-body" style={{ display: props.isOpen ? 'block' : 'none' }}>
       <p>{props.bodyText}</p>
       <ul className="facet-options">
         { props.options.map((opt, i) => (
@@ -25,6 +24,13 @@ const FacetBody = (props) => {
   );
 };
 
+FacetBody.propTypes = {
+  facetId: React.PropTypes.number,
+  bodyText: React.PropTypes.string,
+  options: React.PropTypes.array,
+  selectedOption: React.PropTypes.number,
+  isOpen: React.PropTypes.bool,
+  onOptionChosen: React.PropTypes.func,
+};
 
 export default FacetBody;
-

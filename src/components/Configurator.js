@@ -18,7 +18,7 @@ const Configurator = props => (
                 <li key={facet.id}>
                   <FacetSection
                     facet={facet}
-                    open={facet.id === props.ui.selectedFacetId}
+                    isOpen={(facet.id === props.ui.selectedFacetId)}
                     selection={props.getOptionDescription(facet.id)}
                     onClick={() => props.onSectionChange(facet.id)}
                     onOptionChosen={props.onOptionChosen}
@@ -37,5 +37,11 @@ const Configurator = props => (
     </div>
   </div>
 );
+
+Configurator.propTypes = {
+  facets: React.PropTypes.arrayOf(React.PropTypes.object),
+  onOptionChosen: React.PropTypes.func,
+  getConfiguredPrice: React.PropTypes.func,
+};
 
 export default Configurator;

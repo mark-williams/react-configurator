@@ -8,7 +8,7 @@ const FacetSection = props => (
       <span className={props.facet.selectedOption === 0 ? 'facet-section--notSelected' : ''}>{props.selection}</span>
     </div>
     <FacetBody
-      open={props.open}
+      isOpen={props.isOpen}
       bodyText={props.facet.bodyText}
       facetId={props.facet.id}
       options={props.facet.options}
@@ -18,5 +18,12 @@ const FacetSection = props => (
   </div>
 );
 
+FacetSection.propTypes = {
+  facet: React.PropTypes.object,
+  selection: React.PropTypes.string,
+  isOpen: React.PropTypes.bool,
+  onClick: React.PropTypes.func,
+  onOptionChosen: React.PropTypes.func,
+};
 
 export default FacetSection;
