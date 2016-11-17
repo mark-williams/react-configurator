@@ -9,7 +9,13 @@ const App = () => (
       <img src={logo} className="App-logo" alt="logo" />
       <h2>Welcome to React</h2>
     </div>
-    <ConfiguratorContainer />
+    <div className="container">
+      <div className="row">
+        <div className="col s8">
+          <ConfiguratorContainer />
+        </div>
+      </div>
+    </div>
   </div>
 );
 
