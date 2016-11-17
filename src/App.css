@@ -23,6 +23,18 @@
   font-size: large;
 }
 
+.container {
+  width: 90%;
+}
+
+.card--selected-image {
+  height: 284px;
+}
+
+.configured-image {
+  margin-top: 0.4em;
+}
+
 .facet-section--notSelected {
   color: #ccc;
   font-style: italic;

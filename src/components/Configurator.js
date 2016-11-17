@@ -7,11 +7,6 @@ const Configurator = props => (
     <div className="container">
       <div className="row">
         <div className="col s12">
-          <h4>Configure your new bike</h4>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col s12">
           <ul className="collapsible" data-collapsible="accordion">
             {
               props.facets.map(facet => (

@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import ConfiguratorContainer from './components/ConfiguratorContainer';
+import ConfiguredImage from './components/ConfiguredImage';
 import './App.css';
 
 const App = () => (
@@ -11,8 +12,16 @@ const App = () => (
     </div>
     <div className="container">
       <div className="row">
-        <div className="col s8">
+        <div className="col s12">
+          <h4>Configure your new bike</h4>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col m12 l8">
           <ConfiguratorContainer />
+        </div>
+        <div className="col m12 l4">
+          <ConfiguredImage />
         </div>
       </div>
     </div>
