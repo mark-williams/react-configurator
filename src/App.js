@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import ConfiguratorContainer from './components/ConfiguratorContainer';
-import ConfiguredImage from './components/ConfiguredImage';
+import { ConfiguredImageContainer } from './components/ConfiguredImage';
 import './App.css';
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
           <ConfiguratorContainer />
         </div>
         <div className="col m12 l4">
-          <ConfiguredImage />
+          <ConfiguredImageContainer />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { optionSelected } from '../actions/index';
-import facetReducer, { getOptionDescription, getConfiguredPrice } from './facet-reducer';
+import facetReducer, { getOptionDescription, getConfiguredPrice, getChosenColour } from './facet-reducer';
 
 describe('facet-reducer', () => {
   let testFacets;
@@ -75,6 +75,20 @@ describe('facet-reducer', () => {
       const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(1499);
+    });
+
+    it('returns the chosen colour', () => {
+      testFacets[2].selectedOption = 3;
+      const colour = getChosenColour(testFacets);
+
+      expect(colour).toBe('Facet3Desc3'.toLowerCase());
+    });
+
+    it('returns "none" if colour not chosen', () => {
+      testFacets[2].selectedOption = 0;
+      const colour = getChosenColour(testFacets);
+
+      expect(colour).toBe('none');
     });
   });
 });
