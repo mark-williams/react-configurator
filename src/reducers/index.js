@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import uiReducer from './ui-reducer';
-import facetReducer from './facet-reducer';
+import ui from './ui-reducer';
+import facets from './facet-reducer';
 
 export default combineReducers({
-  ui: uiReducer,
-  facets: facetReducer,
+  ui,
+  facets,
 });
