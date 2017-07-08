@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { getChosenColour } from '../reducers/facet-reducer';
+import { getChosenColour } from '../selectors/facet-selectors';
+
 import ConfiguredImage from './ConfiguredImage';
 
 const mapStateToProps = state => (

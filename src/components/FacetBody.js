@@ -30,7 +30,6 @@ FacetBody.propTypes = {
   options: React.PropTypes.array,
   selectedOption: React.PropTypes.number,
   isOpen: React.PropTypes.bool,
-  onOptionChosen: React.PropTypes.func,
 };
 
 export default FacetBody;

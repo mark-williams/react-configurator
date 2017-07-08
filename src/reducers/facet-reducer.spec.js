@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { optionSelected } from '../actions/index';
-import facetReducer, { getOptionDescription, getConfiguredPrice, getChosenColour } from './facet-reducer';
+import facetReducer from './facet-reducer';
+import { getOptionDescription, getConfiguredPrice, getChosenColour } from '../selectors/facet-selectors';
 
 describe('facet-reducer', () => {
   let testFacets;

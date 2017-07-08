@@ -11,4 +11,8 @@ const Price = props => (
   </div>
 );
 
+Price.propTypes = {
+  price: React.PropTypes.number,
+};
+
 export default Price;
