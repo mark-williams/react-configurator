@@ -2,10 +2,14 @@ import _ from 'lodash';
 import { OPTIONSELECTED } from '../actions/index';
 
 const BASE_PRICE = 999;
+export const FACETSIZEID = 1;
+export const FACETGROUPSETID = 2;
+export const FACETCOLOURID = 3;
+
 const initialState = [
-    { id: 1, facetName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
-    { id: 2, facetName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
-    { id: 3, facetName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Red' }, { val: 2, desc: 'Blue' }, { val: 3, desc: 'Titanium', extraCost: 400 }], selectedOption: 0 },
+    { id: FACETSIZEID, facetName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
+    { id: FACETGROUPSETID, facetName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
+    { id: FACETCOLOURID, facetName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Red' }, { val: 2, desc: 'Blue' }, { val: 3, desc: 'Titanium', extraCost: 400 }], selectedOption: 0 },
 ];
 
 const getUpdatedFacets = (facets, action) => {
@@ -35,7 +39,7 @@ export const getOptionDescription = (facets, sectionId) => {
 
 export const getChosenColour = (facets) => {
   let colour = 'none';
-  const colourSection = _.find(facets, s => (s.id === 3));
+  const colourSection = _.find(facets, s => (s.id === FACETCOLOURID));
   if (colourSection && colourSection.selectedOption > 0) {
     const option = _.find(colourSection.options, o => o.val === colourSection.selectedOption);
     colour = option.desc.toLowerCase();
