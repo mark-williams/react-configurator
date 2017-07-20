@@ -19,7 +19,7 @@ describe('facet-reducer', () => {
       expect(newState.length).toBe(3);
     });
 
-    it('when passed am unknown action return the passed in state', () => {
+    it('when passed an unknown action return the passed in state', () => {
       const action = { type: 'UNKNOWN', value: {} };
       const testState = [{ facet: 1 }, { facet: 2 }, { facet: 3 }];
       const newState = facetReducer(testState, action);
