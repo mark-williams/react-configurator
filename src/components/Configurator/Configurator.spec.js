@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import Configurator from './Configurator';
 import testFacets from '../../Utils/testUtils';
 
@@ -19,5 +20,18 @@ describe('Configurator tests', () => {
       />
     );
     expect(tree).toMatchSnapshot();
+  });
+
+  it('should render a section for each facet', () => {
+    const wrapper = shallow(
+      <Configurator
+        facets={testFacets}
+        ui={uiState}
+        getOptionDescription={facetId => `*** ${facetId}`}
+        getConfiguredPrice={() => 500}
+      />
+    );
+
+    expect(wrapper.find('.collapsible > li').length).toEqual(testFacets.length);
   });
 });
