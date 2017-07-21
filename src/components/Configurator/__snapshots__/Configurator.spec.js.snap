@@ -1,0 +1,244 @@
+exports[`Configurator tests should, er, pass! 1`] = `
+<div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col s12">
+        <ul
+          className="collapsible"
+          data-collapsible="accordion">
+          <li>
+            <div>
+              <div
+                className="collapsible-header"
+                onClick={[Function]}
+                role="button">
+                <i
+                  className="material-icons" />
+                <span
+                  className="facet-section--notSelected">
+                  ***
+                </span>
+              </div>
+              <div
+                className="collapsible-body"
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }>
+                <p />
+                <ul
+                  className="facet-options">
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-1-0"
+                      name="section-1"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-1-0">
+                      Facet1Desc1
+                      
+                    </label>
+                  </li>
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-1-1"
+                      name="section-1"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-1-1">
+                      Facet1Desc2
+                      
+                    </label>
+                  </li>
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-1-2"
+                      name="section-1"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-1-2">
+                      Facet1Desc3
+                       (+£100)
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div
+                className="collapsible-header"
+                onClick={[Function]}
+                role="button">
+                <i
+                  className="material-icons" />
+                <span
+                  className="facet-section--notSelected">
+                  ***
+                </span>
+              </div>
+              <div
+                className="collapsible-body"
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }>
+                <p />
+                <ul
+                  className="facet-options">
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-2-0"
+                      name="section-2"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-2-0">
+                      Facet2Desc1
+                      
+                    </label>
+                  </li>
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-2-1"
+                      name="section-2"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-2-1">
+                      Facet2Desc2
+                       (+£200)
+                    </label>
+                  </li>
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-2-2"
+                      name="section-2"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-2-2">
+                      Facet2Desc3
+                      
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div
+                className="collapsible-header"
+                onClick={[Function]}
+                role="button">
+                <i
+                  className="material-icons" />
+                <span
+                  className="facet-section--notSelected">
+                  ***
+                </span>
+              </div>
+              <div
+                className="collapsible-body"
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }>
+                <p />
+                <ul
+                  className="facet-options">
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-3-0"
+                      name="section-3"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-3-0">
+                      Facet3Desc1
+                       (+£300)
+                    </label>
+                  </li>
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-3-1"
+                      name="section-3"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-3-1">
+                      Facet3Desc2
+                      
+                    </label>
+                  </li>
+                  <li
+                    className="facet-options__body">
+                    <input
+                      checked={false}
+                      id="section-3-2"
+                      name="section-3"
+                      onChange={[Function]}
+                      type="radio" />
+                    <label
+                      htmlFor="section-3-2">
+                      Facet3Desc3
+                      
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="row">
+      <div
+        className="col offset-s7 s5">
+        <div
+          className="card purple darken-4">
+          <div
+            className="card-content white-text">
+            <span
+              className="card-title right-align">
+              Price £
+              500
+            </span>
+            <p>
+              Interest-free credit is available on this item
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
