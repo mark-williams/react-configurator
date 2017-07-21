@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Configurator from './Configurator';
 import testFacets from '../../Utils/testUtils';
 
@@ -23,7 +23,7 @@ describe('Configurator tests', () => {
   });
 
   it('should render a section for each facet', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Configurator
         facets={testFacets}
         ui={uiState}
@@ -33,5 +33,20 @@ describe('Configurator tests', () => {
     );
 
     expect(wrapper.find('.collapsible > li').length).toEqual(testFacets.length);
+  });
+
+  it('should render with selected facet open', () => {
+    const wrapper = mount(
+      <Configurator
+        facets={testFacets}
+        ui={uiState}
+        getOptionDescription={facetId => `*** ${facetId}`}
+        getConfiguredPrice={() => 500}
+      />
+    );
+
+    expect(wrapper.find('.collapsible > li').at(0).props().children.props.isOpen).toBe(true);
+    expect(wrapper.find('.collapsible > li').at(1).props().children.props.isOpen).toBe(false);
+    expect(wrapper.find('.collapsible > li').at(2).props().children.props.isOpen).toBe(false);
   });
 });
