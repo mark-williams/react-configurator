@@ -9,17 +9,17 @@ const testFacets = [
     ];
 
 const uiState = {
-  selectedFacetId: 0,
+  selectedFacetId: 1,
 };
 
 
 describe('Configurator tests', () => {
-  it('should, er, pass!', () => {
+  it('basic snapshot', () => {
     const tree = renderer.create(
       <Configurator
         facets={testFacets}
         ui={uiState}
-        getOptionDescription={() => '***'}
+        getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
       />
     );

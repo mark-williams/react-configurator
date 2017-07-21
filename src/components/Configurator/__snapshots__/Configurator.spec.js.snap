@@ -1,4 +1,4 @@
-exports[`Configurator tests should, er, pass! 1`] = `
+exports[`Configurator tests basic snapshot 1`] = `
 <div>
   <div
     className="container">
@@ -19,14 +19,14 @@ exports[`Configurator tests should, er, pass! 1`] = `
                   className="material-icons" />
                 <span
                   className="facet-section--notSelected">
-                  ***
+                  *** 1
                 </span>
               </div>
               <div
                 className="collapsible-body"
                 style={
                   Object {
-                    "display": "none",
+                    "display": "block",
                   }
                 }>
                 <p />
@@ -88,7 +88,7 @@ exports[`Configurator tests should, er, pass! 1`] = `
                   className="material-icons" />
                 <span
                   className="facet-section--notSelected">
-                  ***
+                  *** 2
                 </span>
               </div>
               <div
@@ -157,7 +157,7 @@ exports[`Configurator tests should, er, pass! 1`] = `
                   className="material-icons" />
                 <span
                   className="facet-section--notSelected">
-                  ***
+                  *** 3
                 </span>
               </div>
               <div
