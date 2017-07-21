@@ -1,5 +1,5 @@
 import React from 'react';
-import FacetBody from './FacetBody';
+import FacetBody from '../FacetBody';
 
 
 const FacetSection = props => (
