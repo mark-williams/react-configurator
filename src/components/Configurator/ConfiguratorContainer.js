@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { changeSelectedFacet, optionSelected } from '../actions/index';
-import { getOptionDescription, getConfiguredPrice } from '../selectors/facet-selectors';
+import { changeSelectedFacet, optionSelected } from '../../actions/index';
+import { getOptionDescription, getConfiguredPrice } from '../../selectors/facet-selectors';
 import Configurator from './Configurator';
 
 const mapStateToProps = state => (

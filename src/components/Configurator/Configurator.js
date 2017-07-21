@@ -1,6 +1,6 @@
 import React from 'react';
-import FacetSection from './FacetSection';
-import Price from './Price';
+import FacetSection from '../FacetSection';
+import Price from '../Price';
 
 const Configurator = props => (
   <div>

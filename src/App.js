@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import ConfiguratorContainer from './components/ConfiguratorContainer';
+import ConfiguratorContainer from './components/Configurator/ConfiguratorContainer';
 import ConfiguredImageContainer from './components/ConfiguredImageContainer';
 import './App.css';
 
