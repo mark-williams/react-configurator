@@ -4,14 +4,15 @@
   "private": true,
   "devDependencies": {
     "babel-eslint": "^7.1.0",
-    "react-scripts": "0.7.0",
     "eslint": "^3.9.0",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0"
+    "eslint-plugin-react": "^6.3.0",
+    "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "enzyme": "^2.9.1",
     "lodash": "^4.16.6",
     "materialize-css": "^0.97.8",
     "react": "^15.3.2",
