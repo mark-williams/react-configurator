@@ -1,7 +1,7 @@
 import React from 'react';
-import redBike from '../images/red-bike.png';
-import blueBike from '../images/blue-bike.png';
-import titaniumBike from '../images/titanium-bike.png';
+import redBike from '../../images/red-bike.png';
+import blueBike from '../../images/blue-bike.png';
+import titaniumBike from '../../images/titanium-bike.png';
 
 
 const getImage = (colour) => {

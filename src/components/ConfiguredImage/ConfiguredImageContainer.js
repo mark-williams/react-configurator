@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getChosenColour } from '../selectors/facet-selectors';
+import { getChosenColour } from '../../selectors/facet-selectors';
 
 import ConfiguredImage from './ConfiguredImage';
 

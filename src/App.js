@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
-import ConfiguratorContainer from './components/Configurator/ConfiguratorContainer';
-import ConfiguredImageContainer from './components/ConfiguredImageContainer';
+import ConfiguratorContainer from './components/Configurator';
+import ConfiguredImageContainer from './components/ConfiguredImage';
 import './App.css';
 
 const App = () => (
