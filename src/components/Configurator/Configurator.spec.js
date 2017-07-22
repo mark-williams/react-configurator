@@ -32,7 +32,7 @@ describe('Configurator tests', () => {
       />
     );
 
-    expect(wrapper.find('.collapsible > li').length).toEqual(testFacets.length);
+    expect(wrapper.find('.collapsible > li')).toHaveLength(testFacets.length);
   });
 
   it('should render with selected facet open', () => {

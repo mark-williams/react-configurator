@@ -1,24 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Configurator tests basic snapshot 1`] = `
 <div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col s12">
+        className="col s12"
+      >
         <ul
           className="collapsible"
-          data-collapsible="accordion">
+          data-collapsible="accordion"
+        >
           <li>
             <div>
               <div
                 className="collapsible-header"
                 onClick={[Function]}
-                role="button">
+                role="button"
+              >
                 <i
-                  className="material-icons" />
+                  className="material-icons"
+                />
                 <span
-                  className="facet-section--notSelected">
+                  className="facet-section--notSelected"
+                >
                   *** 1
                 </span>
               </div>
@@ -28,48 +37,59 @@ exports[`Configurator tests basic snapshot 1`] = `
                   Object {
                     "display": "block",
                   }
-                }>
+                }
+              >
                 <p />
                 <ul
-                  className="facet-options">
+                  className="facet-options"
+                >
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-1-0"
                       name="section-1"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-1-0">
+                      htmlFor="section-1-0"
+                    >
                       Facet1Desc1
                       
                     </label>
                   </li>
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-1-1"
                       name="section-1"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-1-1">
+                      htmlFor="section-1-1"
+                    >
                       Facet1Desc2
                       
                     </label>
                   </li>
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-1-2"
                       name="section-1"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-1-2">
+                      htmlFor="section-1-2"
+                    >
                       Facet1Desc3
                        (+£100)
                     </label>
@@ -83,11 +103,14 @@ exports[`Configurator tests basic snapshot 1`] = `
               <div
                 className="collapsible-header"
                 onClick={[Function]}
-                role="button">
+                role="button"
+              >
                 <i
-                  className="material-icons" />
+                  className="material-icons"
+                />
                 <span
-                  className="facet-section--notSelected">
+                  className="facet-section--notSelected"
+                >
                   *** 2
                 </span>
               </div>
@@ -97,48 +120,59 @@ exports[`Configurator tests basic snapshot 1`] = `
                   Object {
                     "display": "none",
                   }
-                }>
+                }
+              >
                 <p />
                 <ul
-                  className="facet-options">
+                  className="facet-options"
+                >
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-2-0"
                       name="section-2"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-2-0">
+                      htmlFor="section-2-0"
+                    >
                       Facet2Desc1
                       
                     </label>
                   </li>
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-2-1"
                       name="section-2"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-2-1">
+                      htmlFor="section-2-1"
+                    >
                       Facet2Desc2
                        (+£200)
                     </label>
                   </li>
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-2-2"
                       name="section-2"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-2-2">
+                      htmlFor="section-2-2"
+                    >
                       Facet2Desc3
                       
                     </label>
@@ -152,11 +186,14 @@ exports[`Configurator tests basic snapshot 1`] = `
               <div
                 className="collapsible-header"
                 onClick={[Function]}
-                role="button">
+                role="button"
+              >
                 <i
-                  className="material-icons" />
+                  className="material-icons"
+                />
                 <span
-                  className="facet-section--notSelected">
+                  className="facet-section--notSelected"
+                >
                   *** 3
                 </span>
               </div>
@@ -166,48 +203,59 @@ exports[`Configurator tests basic snapshot 1`] = `
                   Object {
                     "display": "none",
                   }
-                }>
+                }
+              >
                 <p />
                 <ul
-                  className="facet-options">
+                  className="facet-options"
+                >
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-3-0"
                       name="section-3"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-3-0">
+                      htmlFor="section-3-0"
+                    >
                       Facet3Desc1
                        (+£300)
                     </label>
                   </li>
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-3-1"
                       name="section-3"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-3-1">
+                      htmlFor="section-3-1"
+                    >
                       Facet3Desc2
                       
                     </label>
                   </li>
                   <li
-                    className="facet-options__body">
+                    className="facet-options__body"
+                  >
                     <input
                       checked={false}
                       id="section-3-2"
                       name="section-3"
                       onChange={[Function]}
-                      type="radio" />
+                      type="radio"
+                    />
                     <label
-                      htmlFor="section-3-2">
+                      htmlFor="section-3-2"
+                    >
                       Facet3Desc3
                       
                     </label>
@@ -220,15 +268,20 @@ exports[`Configurator tests basic snapshot 1`] = `
       </div>
     </div>
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col offset-s7 s5">
+        className="col offset-s7 s5"
+      >
         <div
-          className="card purple darken-4">
+          className="card purple darken-4"
+        >
           <div
-            className="card-content white-text">
+            className="card-content white-text"
+          >
             <span
-              className="card-title right-align">
+              className="card-title right-align"
+            >
               Price £
               500
             </span>
