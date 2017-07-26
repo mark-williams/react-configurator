@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
+import { mount } from 'enzyme';
 import Configurator from './Configurator';
 import testFacets from '../../Utils/testUtils';
 
@@ -18,7 +17,7 @@ describe('Configurator tests', () => {
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
-      />
+      />,
     );
     expect(tree).toMatchSnapshot();
   });
@@ -30,7 +29,7 @@ describe('Configurator tests', () => {
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
-      />
+      />,
     );
 
     expect(wrapper.find('.collapsible > li')).toHaveLength(testFacets.length);
@@ -43,7 +42,7 @@ describe('Configurator tests', () => {
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
-      />
+      />,
     );
 
     expect(wrapper.find('.collapsible > li').at(0).props().children.props.isOpen).toBe(true);
@@ -61,7 +60,7 @@ describe('Configurator tests', () => {
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
         onSectionChange={onSectionClick}
-      />
+      />,
     );
 
     const section = wrapper.find('.collapsible-header').at(sectionToClick - 1);
