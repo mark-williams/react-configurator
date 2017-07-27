@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FacetBody = (props) => {
   const idPrefix = `section-${props.facetId}`;
@@ -25,11 +26,11 @@ const FacetBody = (props) => {
 };
 
 FacetBody.propTypes = {
-  facetId: React.PropTypes.number,
-  bodyText: React.PropTypes.string,
-  options: React.PropTypes.array,
-  selectedOption: React.PropTypes.number,
-  isOpen: React.PropTypes.bool,
+  facetId: PropTypes.number,
+  bodyText: PropTypes.string,
+  options: PropTypes.array,
+  selectedOption: PropTypes.number,
+  isOpen: PropTypes.bool,
 };
 
 export default FacetBody;

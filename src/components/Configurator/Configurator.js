@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FacetSection from '../FacetSection';
 import Price from '../Price';
 
@@ -34,9 +35,9 @@ const Configurator = props => (
 );
 
 Configurator.propTypes = {
-  facets: React.PropTypes.arrayOf(React.PropTypes.object),
-  onOptionChosen: React.PropTypes.func,
-  getConfiguredPrice: React.PropTypes.func,
+  facets: PropTypes.arrayOf(PropTypes.object),
+  onOptionChosen: PropTypes.func,
+  getConfiguredPrice: PropTypes.func,
 };
 
 export default Configurator;

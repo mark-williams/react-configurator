@@ -9,7 +9,7 @@ const mapStateToProps = state => (
 
 const ConfiguredImageContainer = connect(
   mapStateToProps,
-  () => ({})
+  () => ({}),
   )(ConfiguredImage);
 
 export default ConfiguredImageContainer;

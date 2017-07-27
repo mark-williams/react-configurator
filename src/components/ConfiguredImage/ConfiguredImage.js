@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import redBike from '../../images/red-bike.png';
 import blueBike from '../../images/blue-bike.png';
 import titaniumBike from '../../images/titanium-bike.png';
@@ -26,7 +27,7 @@ const ConfiguredImage = props => (
 );
 
 ConfiguredImage.propTypes = {
-  chosenColour: React.PropTypes.string,
+  chosenColour: PropTypes.string,
 };
 
 export default ConfiguredImage;
