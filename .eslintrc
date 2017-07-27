@@ -22,10 +22,10 @@
     //"no-underscore-dangle": [0],
 
     // React-specific
-     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-     "react/forbid-prop-types": [1, { "forbid": ["any"] }],
-
-      "jsx-a11y/no-static-element-interactions": [
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": [1, { "forbid": ["any"] }],
+    "react/require-default-props": [0], 
+    "jsx-a11y/no-static-element-interactions": [
         "warn",
         {
           "handlers": [

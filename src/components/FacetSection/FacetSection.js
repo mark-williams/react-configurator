@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FacetBody from '../FacetBody';
 
 
 const FacetSection = props => (
   <div>
-    <div onClick={() => props.onClick(props.facet.id)} className="collapsible-header" role="button">
+    <div onClick={() => props.onClick(props.facet.id)} className="collapsible-header" role="presentation">
       <i className="material-icons">{props.facet.facetName}</i>
       <span className={props.facet.selectedOption === 0 ? 'facet-section--notSelected' : ''}>{props.selection}</span>
     </div>
@@ -20,11 +21,11 @@ const FacetSection = props => (
 );
 
 FacetSection.propTypes = {
-  facet: React.PropTypes.object,
-  selection: React.PropTypes.string,
-  isOpen: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  onOptionChosen: React.PropTypes.func,
+  facet: PropTypes.object,
+  selection: PropTypes.string,
+  isOpen: PropTypes.bool,
+  onClick: PropTypes.func,
+  onOptionChosen: PropTypes.func,
 };
 
 export default FacetSection;
