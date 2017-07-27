@@ -20,7 +20,7 @@ exports[`Configurator tests basic snapshot 1`] = `
               <div
                 className="collapsible-header"
                 onClick={[Function]}
-                role="button"
+                role="presentation"
               >
                 <i
                   className="material-icons"
@@ -103,7 +103,7 @@ exports[`Configurator tests basic snapshot 1`] = `
               <div
                 className="collapsible-header"
                 onClick={[Function]}
-                role="button"
+                role="presentation"
               >
                 <i
                   className="material-icons"
@@ -186,7 +186,7 @@ exports[`Configurator tests basic snapshot 1`] = `
               <div
                 className="collapsible-header"
                 onClick={[Function]}
-                role="button"
+                role="presentation"
               >
                 <i
                   className="material-icons"
