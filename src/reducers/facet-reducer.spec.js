@@ -13,12 +13,12 @@ describe('facet-reducer', () => {
   describe('default behaviour', () => {
     it('when passed undefined state return a default state', () => {
       const newState = facetReducer(undefined, {});
-      expect(newState.data.length).toBe(3);
+      expect(newState.data).toBeDefined();
     });
 
     it('when passed an unknown action return the passed in state', () => {
       const action = { type: 'UNKNOWN', value: {} };
-      const testState = { data: [{ facet: 1 }, { facet: 2 }, { facet: 3 }], selections: [0, 0, 0] };
+      const testState = { data: {} };
       const newState = facetReducer(testState, action);
 
       expect(newState).toEqual(testState);
@@ -26,13 +26,14 @@ describe('facet-reducer', () => {
   });
 
   describe('update selection', () => {
-    it('when passed a selected option it sets the appropriate facet as selected', () => {
+    it('when passed a selected option it sets the appropriate option for the facet', () => {
       const facetIdToSelect = 2;
-      const optionToSelect = 3;
+      const optionToSelect = 7;
       const action = optionSelected(facetIdToSelect, optionToSelect);
       const newState = facetReducer(testFacets, action);
 
-      expect(newState.selections).toEqual([0, optionToSelect, 0]);
+      const expected = { ...testFacets.selections, [facetIdToSelect]: optionToSelect };
+      expect(newState.selections).toEqual(expected);
     });
   });
 
@@ -57,29 +58,29 @@ describe('facet-reducer', () => {
     // });
 
     it('calculates price where no extra cost elements are selected', () => {
-      testFacets.data[1].selectedOption = 1;
+      testFacets.selections['1'] = 1;
       const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(999);
     });
 
     it('calculates price where extra cost elements are selected', () => {
-      testFacets.data[1].selectedOption = 2;
-      testFacets.data[2].selectedOption = 1;
+      testFacets.selections['2'] = 1;
+      testFacets.selections['3'] = 0;
       const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(1499);
     });
 
     it('returns the chosen colour', () => {
-      testFacets.data[2].selectedOption = 3;
+      testFacets.selections[3] = 2;
       const colour = getChosenColour(testFacets);
 
       expect(colour).toBe('Facet3Desc3'.toLowerCase());
     });
 
     it('returns "none" if colour not chosen', () => {
-      testFacets.data[2].selectedOption = 0;
+      testFacets.selections[3] = null;
       const colour = getChosenColour(testFacets);
 
       expect(colour).toBe('none');

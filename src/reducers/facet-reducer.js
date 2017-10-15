@@ -7,17 +7,21 @@ export const FACETGROUPSETID = 2;
 export const FACETCOLOURID = 3;
 
 const initialState = {
-  data: [
-    { id: FACETSIZEID, facetName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
-    { id: FACETGROUPSETID, facetName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
-    { id: FACETCOLOURID, facetName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Red' }, { val: 2, desc: 'Blue' }, { val: 3, desc: 'Titanium', extraCost: 400 }], selectedOption: 0 },
-  ],
-  selections: [0, 0, 0],
+  data: {
+    size: { id: FACETSIZEID, facetName: 'Size', bodyText: 'Please choose your size (have you seen our size guide?)', options: [{ val: 50, desc: '50cm' }, { val: 54, desc: '54cm' }, { val: 57, desc: '57cm' }, { val: 60, desc: '60cm' }], selectedOption: 0 },
+    groupset: { id: FACETGROUPSETID, facetName: 'Groupset', bodyText: 'Please select your groupset', options: [{ val: 1, desc: 'Shimano Tiagra' }, { val: 2, desc: 'Shimano Ultegra', extraCost: 200 }], selectedOption: 0 },
+    colour: { id: FACETCOLOURID, facetName: 'Colour', bodyText: 'What colour do you want?', options: [{ val: 1, desc: 'Red' }, { val: 2, desc: 'Blue' }, { val: 3, desc: 'Titanium', extraCost: 400 }], selectedOption: 0 },
+  },
+  selections: {
+    size: 0,
+    groupset: 0,
+    colour: 0,
+  },
 };
 
 
 const getUpdatedFacets = (state, action) => {
-  const newSelections = state.selections.map((s, index) => (index === action.value.facetId - 1) ? action.value.optionId : s);
+  const newSelections = Object.assign({}, state.selections, { [action.value.facetId]: action.value.optionId });
   return { date: state.data, selections: newSelections };
 };
 
