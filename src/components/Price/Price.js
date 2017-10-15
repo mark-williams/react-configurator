@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Price = props => (
   <div className="card purple darken-4">
@@ -12,7 +13,7 @@ const Price = props => (
 );
 
 Price.propTypes = {
-  price: React.PropTypes.number,
+  price: PropTypes.number,
 };
 
 export default Price;

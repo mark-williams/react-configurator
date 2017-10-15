@@ -1,8 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Configurator from './Configurator';
 import testFacets from '../../Utils/testUtils';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const uiState = {
   selectedFacetId: 1,
