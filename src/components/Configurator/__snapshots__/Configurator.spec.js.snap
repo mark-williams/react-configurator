@@ -28,7 +28,7 @@ exports[`Configurator tests basic snapshot 1`] = `
                 <span
                   className="facet-section--notSelected"
                 >
-                  *** 1
+                  *** size
                 </span>
               </div>
               <div
@@ -48,13 +48,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-1-0"
-                      name="section-1"
+                      id="section-size-0"
+                      name="section-size"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-1-0"
+                      htmlFor="section-size-0"
                     >
                       Facet1Desc1
                       
@@ -65,13 +65,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-1-1"
-                      name="section-1"
+                      id="section-size-1"
+                      name="section-size"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-1-1"
+                      htmlFor="section-size-1"
                     >
                       Facet1Desc2
                       
@@ -82,13 +82,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-1-2"
-                      name="section-1"
+                      id="section-size-2"
+                      name="section-size"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-1-2"
+                      htmlFor="section-size-2"
                     >
                       Facet1Desc3
                        (+£100)
@@ -111,7 +111,7 @@ exports[`Configurator tests basic snapshot 1`] = `
                 <span
                   className="facet-section--notSelected"
                 >
-                  *** 2
+                  *** groupset
                 </span>
               </div>
               <div
@@ -131,13 +131,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-2-0"
-                      name="section-2"
+                      id="section-groupset-0"
+                      name="section-groupset"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-2-0"
+                      htmlFor="section-groupset-0"
                     >
                       Facet2Desc1
                       
@@ -148,13 +148,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-2-1"
-                      name="section-2"
+                      id="section-groupset-1"
+                      name="section-groupset"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-2-1"
+                      htmlFor="section-groupset-1"
                     >
                       Facet2Desc2
                        (+£200)
@@ -165,13 +165,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-2-2"
-                      name="section-2"
+                      id="section-groupset-2"
+                      name="section-groupset"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-2-2"
+                      htmlFor="section-groupset-2"
                     >
                       Facet2Desc3
                       
@@ -194,7 +194,7 @@ exports[`Configurator tests basic snapshot 1`] = `
                 <span
                   className="facet-section--notSelected"
                 >
-                  *** 3
+                  *** colour
                 </span>
               </div>
               <div
@@ -214,13 +214,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-3-0"
-                      name="section-3"
+                      id="section-colour-0"
+                      name="section-colour"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-3-0"
+                      htmlFor="section-colour-0"
                     >
                       Facet3Desc1
                        (+£300)
@@ -231,13 +231,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-3-1"
-                      name="section-3"
+                      id="section-colour-1"
+                      name="section-colour"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-3-1"
+                      htmlFor="section-colour-1"
                     >
                       Facet3Desc2
                       
@@ -248,13 +248,13 @@ exports[`Configurator tests basic snapshot 1`] = `
                   >
                     <input
                       checked={false}
-                      id="section-3-2"
-                      name="section-3"
+                      id="section-colour-2"
+                      name="section-colour"
                       onChange={[Function]}
                       type="radio"
                     />
                     <label
-                      htmlFor="section-3-2"
+                      htmlFor="section-colour-2"
                     >
                       Facet3Desc3
                       

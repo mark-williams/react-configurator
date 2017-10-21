@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { optionSelected } from '../actions/index';
 import facetReducer from './facet-reducer';
 import { getOptionDescription, getConfiguredPrice, getChosenColour } from '../selectors/facet-selectors';
@@ -43,44 +42,30 @@ describe('facet-reducer', () => {
       expect(result).toBe('Not selected');
     });
 
-    // it.only('calculates correct description for a chosen option', () => {
-    //   const testFacetId = 2;
-    //   const testOption = 3;
-    //   const facetIndex = _.findIndex(testFacets, facet => (facet.id === testFacetId));
-    //   testFacets[facetIndex].selectedOption = testOption;
-    //   const expectedOption =
-    //     _.find(testFacets[facetIndex].options, opt => (opt.val === testOption));
-
-    //   const result = getOptionDescription(testFacets, testFacetId);
-
-
-    //   expect(result).toBe(expectedOption.desc);
-    // });
-
     it('calculates price where no extra cost elements are selected', () => {
-      testFacets.selections['1'] = 1;
+      testFacets.selections.size = 1;
       const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(999);
     });
 
     it('calculates price where extra cost elements are selected', () => {
-      testFacets.selections['2'] = 1;
-      testFacets.selections['3'] = 0;
+      testFacets.selections.groupset = 2;
+      testFacets.selections.colour = 1;
       const result = getConfiguredPrice(testFacets);
 
       expect(result).toBe(1499);
     });
 
     it('returns the chosen colour', () => {
-      testFacets.selections[3] = 2;
+      testFacets.selections.colour = 2;
       const colour = getChosenColour(testFacets);
 
-      expect(colour).toBe('Facet3Desc3'.toLowerCase());
+      expect(colour).toBe('Facet3Desc2'.toLowerCase());
     });
 
     it('returns "none" if colour not chosen', () => {
-      testFacets.selections[3] = null;
+      testFacets.selections.colour = null;
       const colour = getChosenColour(testFacets);
 
       expect(colour).toBe('none');

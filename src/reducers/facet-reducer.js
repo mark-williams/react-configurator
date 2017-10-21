@@ -24,7 +24,7 @@ const initialState = {
 const getUpdatedFacets = (state, action) => {
   const newSelections =
     Object.assign({}, state.selections, { [action.value.facetId]: action.value.optionId });
-  return { date: state.data, selections: newSelections };
+  return { data: state.data, selections: newSelections };
 };
 
 const facetReducer = (state = initialState, action) => {

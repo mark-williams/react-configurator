@@ -5,19 +5,18 @@ import Adapter from 'enzyme-adapter-react-16';
 import Configurator from './Configurator';
 import testFacets from '../../Utils/testUtils';
 
-
 Enzyme.configure({ adapter: new Adapter() });
 
 const uiState = {
-  selectedFacetId: '1',
+  selectedFacetId: 'size',
 };
-
 
 describe('Configurator tests', () => {
   it('basic snapshot', () => {
     const tree = renderer.create(
       <Configurator
         facets={testFacets.data}
+        selections={testFacets.selections}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
@@ -30,6 +29,7 @@ describe('Configurator tests', () => {
     const wrapper = mount(
       <Configurator
         facets={testFacets.data}
+        selections={testFacets.selections}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
@@ -43,6 +43,7 @@ describe('Configurator tests', () => {
     const wrapper = mount(
       <Configurator
         facets={testFacets.data}
+        selections={testFacets.selections}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
@@ -55,11 +56,12 @@ describe('Configurator tests', () => {
   });
 
   it('should call back on change of section', () => {
-    const sectionToClick = '2';
+    const sectionToClick = 2;
     const onSectionClick = jest.fn();
     const wrapper = mount(
       <Configurator
         facets={testFacets.data}
+        selections={testFacets.selections}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
@@ -71,6 +73,6 @@ describe('Configurator tests', () => {
     section.simulate('click');
 
     expect(onSectionClick.mock.calls).toHaveLength(1);
-    expect(onSectionClick.mock.calls[0][0]).toBe(sectionToClick);
+    expect(onSectionClick.mock.calls[0][0]).toBe('groupset');
   });
 });

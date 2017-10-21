@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FacetBody = (props) => {
-  console.log('FACETBODY', props.facetKey, props.options);
   const idPrefix = `section-${props.facetKey}`;
   return (
     <div className="collapsible-body" style={{ display: props.isOpen ? 'block' : 'none' }}>
@@ -11,7 +10,7 @@ const FacetBody = (props) => {
         { props.options.map((opt, i) => (
           <li key={opt.val} className="facet-options__body">
             <input
-              name={`section-${props.facetId}`}
+              name={`section-${props.facetKey}`}
               type="radio"
               id={`${idPrefix}-${i}`}
               onChange={() => props.onOptionChosen(props.facetKey, opt.val)}
@@ -26,12 +25,16 @@ const FacetBody = (props) => {
   );
 };
 
+// Looks like a bug with eslint or plugin for unused props and stateless components
+/* eslint-disable react/no-unused-prop-types */
 FacetBody.propTypes = {
   facetKey: PropTypes.string,
   bodyText: PropTypes.string,
   options: PropTypes.array,
   selectedOption: PropTypes.number,
   isOpen: PropTypes.bool,
+  onOptionChosen: PropTypes.func,
 };
+/* eslint-enable */
 
 export default FacetBody;

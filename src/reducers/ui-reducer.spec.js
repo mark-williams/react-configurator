@@ -4,7 +4,7 @@ import { FACETCHANGE, changeSelectedFacet } from '../actions/index';
 describe('ui reducer', () => {
   it('when passed undefined state return the default state', () => {
     const newState = uiReducer(undefined, {});
-    expect(newState).toEqual({ selectedFacetId: 1 });
+    expect(newState).toEqual({ selectedFacetId: 'size' });
   });
 
   it('when passed facet change action sets the cutrently selected facet', () => {

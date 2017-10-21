@@ -15,6 +15,7 @@ const Configurator = props => (
                   <FacetSection
                     facet={props.facets[facetKey]}
                     facetKey={facetKey}
+                    selectedOption={props.selections[facetKey]}
                     isOpen={(facetKey === props.ui.selectedFacetId)}
                     selection={props.getOptionDescription(facetKey)}
                     onClick={() => props.onSectionChange(facetKey)}
@@ -35,10 +36,17 @@ const Configurator = props => (
   </div>
 );
 
+// Looks like a bug with eslint or plugin for unused props and stateless components
+/* eslint-disable react/no-unused-prop-types */
 Configurator.propTypes = {
   facets: PropTypes.object,
+  selections: PropTypes.object,
   onOptionChosen: PropTypes.func,
   getConfiguredPrice: PropTypes.func,
+  getOptionDescription: PropTypes.func,
+  onSectionChange: PropTypes.func,
+  ui: PropTypes.object,
 };
+/* eslint-enable */
 
 export default Configurator;

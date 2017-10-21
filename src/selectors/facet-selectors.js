@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import { BASE_PRICE, FACETCOLOURKEY } from '../reducers/facet-reducer';
 
-export const getOptionDescription = (facets, sectionId) => {
+export const getOptionDescription = (facets, sectionKey) => {
   let description = 'Not selected';
-  const section = _.find(facets.data, s => (s.id === sectionId));
-  if (section && section.selectedOption > 0) {
-    const option = _.find(section.options, o => o.val === section.selectedOption);
+  const section = facets.data[sectionKey];
+  if (section && facets.selections[sectionKey] > 0) {
+    const option = _.find(section.options, o => o.val === facets.selections[sectionKey]);
     description = option.desc;
   }
 
@@ -17,9 +17,10 @@ export const getChosenColour = (facets) => {
   const colourSection = facets.data[FACETCOLOURKEY];
   const selectedOption = facets.selections[FACETCOLOURKEY];
   if (selectedOption !== null) {
-    const chosen = colourSection.options[selectedOption];
-
-    colour = chosen.desc.toLowerCase();
+    const chosen = colourSection.options.find(opt => opt.val === selectedOption);
+    if (chosen) {
+      colour = chosen.desc.toLowerCase();
+    }
   }
 
   return colour;
@@ -31,7 +32,9 @@ export const getConfiguredPrice = (facets) => {
 
   keys.forEach((key) => {
     if (facets.selections[key] !== null) {
-      const extraCost = facets.data[key].options[facets.selections[key]].extraCost;
+      const selectedOption =
+        facets.data[key].options.find(opt => opt.val === facets.selections[key]);
+      const extraCost = selectedOption && selectedOption.extraCost;
       if (extraCost) {
         configuredPrice += extraCost;
       }
