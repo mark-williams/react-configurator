@@ -9,7 +9,7 @@ import testFacets from '../../Utils/testUtils';
 Enzyme.configure({ adapter: new Adapter() });
 
 const uiState = {
-  selectedFacetId: 1,
+  selectedFacetId: '1',
 };
 
 
@@ -17,7 +17,7 @@ describe('Configurator tests', () => {
   it('basic snapshot', () => {
     const tree = renderer.create(
       <Configurator
-        facets={testFacets}
+        facets={testFacets.data}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
@@ -29,20 +29,20 @@ describe('Configurator tests', () => {
   it('should render a section for each facet', () => {
     const wrapper = mount(
       <Configurator
-        facets={testFacets}
+        facets={testFacets.data}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
       />,
     );
 
-    expect(wrapper.find('.collapsible > li')).toHaveLength(testFacets.length);
+    expect(wrapper.find('.collapsible > li')).toHaveLength(Object.keys(testFacets.data).length);
   });
 
   it('should render with selected facet open', () => {
     const wrapper = mount(
       <Configurator
-        facets={testFacets}
+        facets={testFacets.data}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}
@@ -55,11 +55,11 @@ describe('Configurator tests', () => {
   });
 
   it('should call back on change of section', () => {
-    const sectionToClick = 2;
+    const sectionToClick = '2';
     const onSectionClick = jest.fn();
     const wrapper = mount(
       <Configurator
-        facets={testFacets}
+        facets={testFacets.data}
         ui={uiState}
         getOptionDescription={facetId => `*** ${facetId}`}
         getConfiguredPrice={() => 500}

@@ -1,7 +1,8 @@
 import { FACETCHANGE } from '../actions/index';
+import { FACETSIZEKEY } from './facet-reducer';
 
 const initialState = {
-  selectedFacetId: 1,
+  selectedFacetId: FACETSIZEKEY,
 };
 
 const uiReducer = (state = initialState, action) => {

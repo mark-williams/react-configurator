@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FacetBody = (props) => {
-  const idPrefix = `section-${props.facetId}`;
+  console.log('FACETBODY', props.facetKey, props.options);
+  const idPrefix = `section-${props.facetKey}`;
   return (
     <div className="collapsible-body" style={{ display: props.isOpen ? 'block' : 'none' }}>
       <p>{props.bodyText}</p>
@@ -13,7 +14,7 @@ const FacetBody = (props) => {
               name={`section-${props.facetId}`}
               type="radio"
               id={`${idPrefix}-${i}`}
-              onChange={() => props.onOptionChosen(props.facetId, opt.val)}
+              onChange={() => props.onOptionChosen(props.facetKey, opt.val)}
               checked={opt.val === props.selectedOption}
             />
             <label htmlFor={`${idPrefix}-${i}`}>{opt.desc}{opt.extraCost ? ` (+£${opt.extraCost})` : ''}</label>
@@ -26,7 +27,7 @@ const FacetBody = (props) => {
 };
 
 FacetBody.propTypes = {
-  facetId: PropTypes.number,
+  facetKey: PropTypes.string,
   bodyText: PropTypes.string,
   options: PropTypes.array,
   selectedOption: PropTypes.number,

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { BASE_PRICE, FACETCOLOURID } from '../reducers/facet-reducer';
+import { BASE_PRICE, FACETCOLOURKEY } from '../reducers/facet-reducer';
 
 export const getOptionDescription = (facets, sectionId) => {
   let description = 'Not selected';
@@ -14,8 +14,8 @@ export const getOptionDescription = (facets, sectionId) => {
 
 export const getChosenColour = (facets) => {
   let colour = 'none';
-  const colourSection = facets.data[FACETCOLOURID];
-  const selectedOption = facets.selections[FACETCOLOURID];
+  const colourSection = facets.data[FACETCOLOURKEY];
+  const selectedOption = facets.selections[FACETCOLOURKEY];
   if (selectedOption !== null) {
     const chosen = colourSection.options[selectedOption];
 

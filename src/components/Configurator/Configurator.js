@@ -10,13 +10,14 @@ const Configurator = props => (
         <div className="col s12">
           <ul className="collapsible" data-collapsible="accordion">
             {
-              props.facets.map(facet => (
-                <li key={facet.id}>
+              Object.keys(props.facets).map(facetKey => (
+                <li key={facetKey}>
                   <FacetSection
-                    facet={facet}
-                    isOpen={(facet.id === props.ui.selectedFacetId)}
-                    selection={props.getOptionDescription(facet.id)}
-                    onClick={() => props.onSectionChange(facet.id)}
+                    facet={props.facets[facetKey]}
+                    facetKey={facetKey}
+                    isOpen={(facetKey === props.ui.selectedFacetId)}
+                    selection={props.getOptionDescription(facetKey)}
+                    onClick={() => props.onSectionChange(facetKey)}
                     onOptionChosen={props.onOptionChosen}
                   />
                 </li>
@@ -35,7 +36,7 @@ const Configurator = props => (
 );
 
 Configurator.propTypes = {
-  facets: PropTypes.arrayOf(PropTypes.object),
+  facets: PropTypes.object,
   onOptionChosen: PropTypes.func,
   getConfiguredPrice: PropTypes.func,
 };

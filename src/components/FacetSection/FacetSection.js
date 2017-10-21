@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import FacetBody from '../FacetBody';
 
 
-const FacetSection = props => (
+const FacetSection = props => {
+  console.log('SECTION', props);
+  return (
   <div>
     <div onClick={() => props.onClick(props.facet.id)} className="collapsible-header" role="presentation">
       <i className="material-icons">{props.facet.facetName}</i>
@@ -12,16 +14,18 @@ const FacetSection = props => (
     <FacetBody
       isOpen={props.isOpen}
       bodyText={props.facet.bodyText}
-      facetId={props.facet.id}
+      facetKey={props.facetKey}
       options={props.facet.options}
       selectedOption={props.facet.selectedOption}
       onOptionChosen={props.onOptionChosen}
     />
   </div>
 );
+}
 
 FacetSection.propTypes = {
   facet: PropTypes.object,
+  facetKey: PropTypes.string,
   selection: PropTypes.string,
   isOpen: PropTypes.bool,
   onClick: PropTypes.func,

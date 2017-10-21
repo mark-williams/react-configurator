@@ -5,9 +5,9 @@ import Configurator from './Configurator';
 
 const mapStateToProps = state => (
   {
-    facets: state.facets,
+    facets: state.facets.data,
     ui: state.ui,
-    getOptionDescription: facetId => (getOptionDescription(state.facets, facetId)),
+    getOptionDescription: facetId => (getOptionDescription(state.facets.data, facetId)),
     getConfiguredPrice: () => (getConfiguredPrice(state.facets)),
   }
 );
