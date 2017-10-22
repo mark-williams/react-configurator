@@ -1,6 +1,6 @@
 import { optionSelected } from '../actions/index';
 import facetReducer from './facet-reducer';
-import { getOptionDescription, getConfiguredPrice, getChosenColour } from '../selectors/facet-selectors';
+import { getOptionDescription, getConfiguredPrice, getChosenColour } from './facet-selectors';
 import facetsForTest from '../Utils/testUtils';
 
 describe('facet-reducer', () => {

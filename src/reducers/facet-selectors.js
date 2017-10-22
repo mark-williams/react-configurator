@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { BASE_PRICE, FACETCOLOURKEY } from '../reducers/constants';
 
 export const getOptionDescription = (facets, sectionKey) => {
