@@ -1,5 +1,5 @@
 import { FACETCHANGE } from '../actions/index';
-import { FACETSIZEKEY } from './facet-reducer';
+import { FACETSIZEKEY } from './constants';
 
 const initialState = {
   selectedFacetId: FACETSIZEKEY,

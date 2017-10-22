@@ -1,9 +1,5 @@
 import { OPTIONSELECTED } from '../actions/index';
-
-export const BASE_PRICE = 999;
-export const FACETSIZEKEY = 'size';
-const FACETGROUPSETKEY = 'groupset';
-export const FACETCOLOURKEY = 'colour';
+import { FACETSIZEKEY, FACETGROUPSETKEY, FACETCOLOURKEY } from './constants';
 
 const initialState = {
   data: {

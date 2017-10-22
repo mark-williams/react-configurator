@@ -1,11 +1,11 @@
 import _ from 'lodash';
-import { BASE_PRICE, FACETCOLOURKEY } from '../reducers/facet-reducer';
+import { BASE_PRICE, FACETCOLOURKEY } from '../reducers/constants';
 
 export const getOptionDescription = (facets, sectionKey) => {
   let description = 'Not selected';
   const section = facets.data[sectionKey];
   if (section && facets.selections[sectionKey] > 0) {
-    const option = _.find(section.options, o => o.val === facets.selections[sectionKey]);
+    const option = section.options.find(o => o.val === facets.selections[sectionKey]);
     description = option.desc;
   }
 
